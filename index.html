@@ -23,9 +23,7 @@
 
 </head>
 
-<audio autoplay loop preload="auto">
-    <source src="assets/audio/monsterjam.mp3" type="audio/mpeg">
-</audio>
+
 
 <body>
 
@@ -59,6 +57,30 @@
         </section>
 
     </main>
+
+    <audio id="invitationAudio" loop preload="auto" playsinline>
+        <source src="assets/audio/monsterjam.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('invitationAudio');
+
+        const startAudio = async () => {
+            try {
+                audio.volume = 0.7;
+                await audio.play();
+            } catch (error) {
+                console.log('No se pudo reproducir automáticamente:', error);
+            }
+        };
+
+        window.addEventListener('load', startAudio);
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                startAudio();
+            }
+        });
+    </script>
 
 </body>
 
