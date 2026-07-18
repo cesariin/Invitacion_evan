@@ -58,7 +58,7 @@
 
     </main>
 
-    <audio id="invitationAudio" autoplay muted loop preload="auto" playsinline webkit-playsinline>
+    <audio id="invitationAudio" loop preload="auto" playsinline webkit-playsinline>
         <source src="assets/audio/monsterjam.mp3" type="audio/mpeg">
     </audio>
 
@@ -73,26 +73,19 @@
                 audio.volume = 0.7;
                 await audio.play();
                 started = true;
-                audio.muted = false;
             } catch (error) {
-                console.log('No se pudo iniciar el audio aún:', error);
+                console.log('El audio aún no puede iniciarse:', error);
             }
         };
 
         const startAudio = () => {
             tryPlay();
-            setTimeout(() => tryPlay(), 400);
-            setTimeout(() => tryPlay(), 1200);
+            setTimeout(() => tryPlay(), 200);
+            setTimeout(() => tryPlay(), 800);
         };
 
-        window.addEventListener('load', startAudio);
-        window.addEventListener('touchstart', startAudio, { once: true });
-        window.addEventListener('click', startAudio, { once: true });
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden) {
-                startAudio();
-            }
-        });
+        document.addEventListener('touchstart', startAudio, { once: true });
+        document.addEventListener('click', startAudio, { once: true });
     </script>
 
 </body>
