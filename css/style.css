@@ -1,0 +1,350 @@
+/* ==========================================
+   MONSTER JAM INVITATION
+   style.css
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    background:#000;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+/*==========================
+      FONDO
+==========================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,
+
+    #4d4d4d 0%,
+
+    #1b1b1b 35%,
+
+    #080808 70%,
+
+    #000 100%);
+
+    z-index:-30;
+
+}
+
+/*==========================
+      LUCES
+==========================*/
+
+.lights{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,
+
+    rgba(255,255,255,.25),
+
+    transparent 65%);
+
+    mix-blend-mode:screen;
+
+    pointer-events:none;
+
+    z-index:-20;
+
+}
+
+/*==========================
+      CONTENEDOR
+==========================*/
+
+.wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    perspective:1800px;
+
+}
+
+/*==========================
+      TARJETA
+==========================*/
+
+.card{
+
+    position:relative;
+
+    width:min(450px,92vw);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:
+
+        transform .45s ease,
+
+        box-shadow .45s ease;
+
+}
+
+/*==========================
+      HOVER
+==========================*/
+
+.card:hover{
+
+    transform:
+
+        perspective(1600px)
+
+        rotateX(3deg)
+
+        rotateY(-4deg)
+
+        scale(1.02);
+
+}
+
+/*==========================
+      HALO
+==========================*/
+
+.glow{
+
+    position:absolute;
+
+    inset:-30px;
+
+    border-radius:35px;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(255,220,0,.40),
+
+    rgba(255,170,0,.18),
+
+    transparent 70%);
+
+    filter:blur(35px);
+
+    z-index:-1;
+
+}
+
+/*==========================
+      IMAGEN
+==========================*/
+
+.invitation{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:25px;
+
+    box-shadow:
+
+        0 15px 45px rgba(0,0,0,.65),
+
+        0 0 35px rgba(255,180,0,.20),
+
+        0 0 90px rgba(255,210,0,.15);
+
+}
+
+/*==========================
+      BRILLO
+==========================*/
+
+.shine{
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-50%;
+
+    width:65%;
+
+    height:320%;
+
+    transform:rotate(25deg);
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.65),
+
+        transparent
+
+    );
+
+}
+
+/*==========================
+      HUMO
+==========================*/
+
+.smoke{
+
+    position:fixed;
+
+    bottom:-180px;
+
+    width:340px;
+
+    height:340px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    rgba(255,255,255,.12),
+
+    transparent 70%);
+
+    filter:blur(45px);
+
+    pointer-events:none;
+
+    z-index:-10;
+
+}
+
+.smoke-left{
+
+    left:-60px;
+
+}
+
+.smoke-center{
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+.smoke-right{
+
+    right:-60px;
+
+}
+
+/*==========================
+      RESPONSIVE
+==========================*/
+
+@media (max-width:900px){
+
+    .wrapper{
+
+        padding:25px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .card{
+
+        width:95vw;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .wrapper{
+
+        padding:12px;
+
+    }
+
+    .card{
+
+        border-radius:18px;
+
+    }
+
+    .invitation{
+
+        border-radius:18px;
+
+    }
+
+}
+
+/*==========================
+      SOMBRA EXTRA
+==========================*/
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:25px;
+
+    box-shadow:
+
+    inset 0 0 30px rgba(255,255,255,.08);
+
+    pointer-events:none;
+
+}
